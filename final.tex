@@ -35,13 +35,13 @@ The Ising model is a mathematical model of ferromagnetism in statistical
 mechanics. 
 It consists of a lattice of spins which can be in one of two states,
 spin up or spin down, and an external magnetic field $ B $.
-In this project, we will use the Metropolis-Hastings algorithm to simulate the
+In this project, we will use the Markov Chain Monte Carlo method and iterate it using the Metropolis-Hastings algorithm to simulate the
 2D Ising model and study the phase transition from a disordered to an 
 ordered state.
 We use Numba and NumPy to optimize our code so that each iteration
 runs in $ \mathcal{O}(z) $ time, where $ z $ is the number of nearest neighbors.
 This speeds up our simulation by a factor of $ 300\times $ compared to 
-a naive python only implementation.
+the simple python only implementation.
 We find that there is a first order phase transition line at $ B=0 $
 and $ T < T_{c} $ for varying $ B $,
 and a second order phase transition at $ B=0 $ and $ T = T_{c} $
@@ -57,10 +57,9 @@ $ T_{c} \approx 2.269 $ is the analytical critical temperature for the
 \section{Introduction}
 \label{sec:intro}
 
-The Ising model is a mathematical model of ferromagnetism.
-It consists of a lattice of spins which can be in one of two states, 
-spin up or spin down, and an external magnetic field $ B $.
-The Hamiltonian for the 2D Ising model is given by 
+The Ising model is a mathematical model of ferromagnetism, where it describes phase transitions in a system of interacting spins. The spins are represented by a square grid with a set of lattice sites $\Lambda$.
+These lattice of spins can be in one of two states, 
+spin up or spin down, and an external magnetic field $ B $. The spin's take a value of $\sigma_k \epsilon \pm 1$. The spins interact with their nearest neighbors (adjacent sites) and the interaction energy is represented by the Hamiltonian. The Hamiltonian for the 2D Ising model is given by 
 \begin{equation}
 \hat{H} = -J \sum_{\langle i,j \rangle} \sigma_{i} \sigma_{j}
 - B \sum_i \sigma_{i}
@@ -305,7 +304,7 @@ which is an indication of ferromagnetism.
 \label{sec:conclusion}
 The Ising model is a well-studied model in statistical mechanics
 that describes the behavior of ferromagnetic materials.
-It turns out that the $ P-V $ phase diagram of gasses is topologically
+Our results indicate that the $ P-V $ phase diagram of gasses is topologically
 equivalent to that of the $ B-T $ phase diagram of magnetization,
 so studying the Ising model can give us insight into the behavior of gasses
 as well.
